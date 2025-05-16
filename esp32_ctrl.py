@@ -5,7 +5,7 @@ import socket
 import time
 
 # Tải mô hình .tflite
-interpreter = tf.lite.Interpreter(model_path="steering_model_clean.tflite")
+interpreter = tf.lite.Interpreter(model_path="steering_model_balanced.tflite")
 interpreter.allocate_tensors()
 
 # Lấy thông tin input và output của mô hình
@@ -19,7 +19,7 @@ BASE_SPEED = 200
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Throttle gửi lệnh
-SEND_INTERVAL = 0.5  # Gửi lệnh mỗi 0.5 giây
+SEND_INTERVAL = 1  # Gửi lệnh mỗi 0.5 giây
 last_send_time = 0
 
 # Kiểm tra trên luồng video
