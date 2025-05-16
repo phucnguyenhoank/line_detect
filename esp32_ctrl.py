@@ -45,7 +45,7 @@ while True:
     output_data = interpreter.get_tensor(output_details[0]["index"])
     prediction = np.argmax(output_data[0])
     result = ["right", "forward", "left"][prediction]
-    print(f"Dự đoán: {result}")
+    # print(f"Dự đoán: {result}")
 
     # Gửi lệnh tới ESP32 nếu đã đủ thời gian
     current_time = time.time()
