@@ -5,7 +5,7 @@ import socket
 import time
 
 # Tải mô hình .tflite
-interpreter = tf.lite.Interpreter(model_path="steering_model.tflite")
+interpreter = tf.lite.Interpreter(model_path="steering_model_clean.tflite")
 interpreter.allocate_tensors()
 
 # Lấy thông tin input và output của mô hình
@@ -13,7 +13,7 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Cấu hình UDP để gửi lệnh tới ESP32q
-ESP32_IP = "192.168.151.29"  # Thay bằng IP thực tế của ESP32
+ESP32_IP = "192.168.86.29"  # Thay bằng IP thực tế của ESP32
 ESP32_PORT = 5000
 BASE_SPEED = 200
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -23,7 +23,7 @@ SEND_INTERVAL = 0.5  # Gửi lệnh mỗi 0.5 giây
 last_send_time = 0
 
 # Kiểm tra trên luồng video
-stream_url = "http://192.168.151.130:81/stream"
+stream_url = "http://192.168.86.130:81/stream"
 cap = cv2.VideoCapture(stream_url)
 
 while True:
