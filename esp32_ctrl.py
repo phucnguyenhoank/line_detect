@@ -13,17 +13,17 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Cấu hình UDP để gửi lệnh tới ESP32q
-ESP32_IP = "192.168.86.29"  # Thay bằng IP thực tế của ESP32
+ESP32_IP = "192.168.197.29"  # Thay bằng IP thực tế của ESP32
 ESP32_PORT = 5000
 BASE_SPEED = 200
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Throttle gửi lệnh
-SEND_INTERVAL = 1  # Gửi lệnh mỗi 0.5 giây
+SEND_INTERVAL = 0.3  # Gửi lệnh mỗi 0.5 giây
 last_send_time = 0
 
 # Kiểm tra trên luồng video
-stream_url = "http://192.168.86.130:81/stream"
+stream_url = "http://192.168.197.130:81/stream"
 cap = cv2.VideoCapture(stream_url)
 
 while True:
